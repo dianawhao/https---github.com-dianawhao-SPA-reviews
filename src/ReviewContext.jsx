@@ -63,13 +63,24 @@ const ReviewProvider = (props) => {
     return wantedReview;
   }
 
-  const updateReview = (id, restaurant, review, rating) => {
+  const updateReview = async (id, restaurant, review, rating) => {
     const modifiedReview = {
       _id : id,
       restaurant: restaurant,
       review: review,
-      rating: rating
+      rating: parseInt(rating)
     }
+
+    const response = await fetch(BASE_API_URL + "reviews/" + id,{
+      method:"PUT",
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify(modifiedReview)
+    });
+
+    const results = await response.json();
+
     // goal: insert modified review back at its original index in the array
     // 1. find the index
     const indexToReplace = reviews.findIndex(r => r._id == id);
