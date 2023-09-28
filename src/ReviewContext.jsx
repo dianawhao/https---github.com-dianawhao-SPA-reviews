@@ -126,6 +126,5 @@ const ReviewProvider = (props) => {
   );
 };
 
-// if going to export more than one
-// don't use export default
+// if going to export more than one, then don't use export default
 export { ReviewContext, ReviewProvider };
