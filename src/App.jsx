@@ -12,9 +12,10 @@ function App() {
 
   return (
     <>
-     <h1>RecipeBook App</h1>
+    <div className="container">
+    <h1>RecipeBook App</h1>
     {/* All the routes must be defined as children of the BrowserRouter */}
-          <BrowserRouter>
+     <BrowserRouter>
       {/* All the routes must be in the <Routes> as children */}
       <Routes>
         <Route path="/" element={
@@ -26,6 +27,7 @@ function App() {
         }/>
       </Routes>
      </BrowserRouter>
+     </div>
     </>
   )
 }
